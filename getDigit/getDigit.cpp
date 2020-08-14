@@ -5,22 +5,30 @@ int main()
 	int i = 0, j = 0, n;
 	char num[1000], num2[1000];
 	scanf("%[-0-9.] %u", num, &n);
-	while (num[j] != '\0') 
+	if (n > 0) 
 	{
-		num2[i] = num[j];
-
-		if (num[j] == '.') 
+		while (num[j] != '\0') 
 		{
-			break;
+			num2[i] = num[j];
+
+			if (num[j] == '.') 
+			{
+				break;
+			}
+			j++;
+			i++;
 		}
-		j++;
-		i++;
+		num2[i] = '\0';
+		if (n <= i && n > 0) 
+		{
+			i -= n;
+			printf("%c", num2[i]);
+		}
 	}
-	num2[i] = '\0';
-	if (n <= i && n > 0) 
+	else 
 	{
-		i -= n;
-		printf("%c", num2[i]);
+		printf("Please enter a positive number at the last number!");
 	}
+
 	return 0;
 }
